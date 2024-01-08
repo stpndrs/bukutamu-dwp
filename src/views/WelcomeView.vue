@@ -6,6 +6,8 @@ import { get, ref as firebaseRef, onValue } from 'firebase/database';
 
 const data = ref([]);
 const name = ref('')
+const address = ref('')
+const count = ref(0)
 
 onMounted(async () => {
     console.log('Firestore instance:', db);
@@ -23,6 +25,8 @@ onMounted(async () => {
             data.value = Object.values(dataFromFirebase);
         }
         name.value = data.value[data.value.length - 1].name
+        address.value = data.value[data.value.length - 1].address
+        count.value = data.value.length
     });
 });
 </script>
@@ -33,11 +37,15 @@ onMounted(async () => {
             <img src="../assets/kaltim.png" alt="KALTIM">
             <p>Dinas Pendidikan dan Kebudayaan <br> Provinsi Kalimantan Timur</p>
         </header>
-        <main class="text-center c-blue">
+        <main class="text-center mb-5 c-blue">
             <p class="fs-35">Selamat HUT ke-67 Kalimantan Timur</p>
-            <h1 class="mb-4 fs-80">Selamat Datang, <br> <span class="c-yellow name">{{ name }}</span></h1>
+            <h1 class="fs-80">Selamat Datang, <br> <span class="c-yellow name">{{ name }}</span></h1>
+            <h4 class="c-yellow mb-4">{{ address }}</h4>
             <p class="fs-20">Dharma Wanita Persatuan DISDIKBUD Provinsi KALTIM berperan membangun KALTIM untuk nusantara,
                 melalui pembinaan keluarga dan generasi sehat berakhlak dan berbudaya.</p>
         </main>
+        <footer>
+            <p class="c-yellow fw-bold">Jumlah pengunjung: {{ count }}</p>
+        </footer>
     </div>
 </template>
