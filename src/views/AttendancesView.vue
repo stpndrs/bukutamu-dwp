@@ -29,6 +29,7 @@ onMounted(async () => {
 <template>
 	<main class="container">
 		<h1 class="text-center">List Pengunjung</h1>
+		<button class="btn btn-primary bg-blue" onclick="window.print()">Cetak</button>
 		<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
@@ -47,3 +48,11 @@ onMounted(async () => {
 		</table>
 	</main>
 </template>
+
+<style>
+@media print {
+	.btn.btn-primary.bg-blue {
+		display: none;
+	}
+}
+</style>

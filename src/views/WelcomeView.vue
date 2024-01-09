@@ -33,9 +33,10 @@ onMounted(async () => {
 
 <template>
     <div class="container">
-        <header class="d-flex align-items-center">
+        <header class="d-flex align-items-center justify-content-between text-center c-blue">
             <img src="../assets/kaltim.png" alt="KALTIM">
-            <p>Dinas Pendidikan dan Kebudayaan <br> Provinsi Kalimantan Timur</p>
+            <h3>Dharma Wanita <br> Dinas Pendidikan dan Kebudayaan <br> Provinsi Kalimantan Timur</h3>
+            <img src="../assets/dwp.png" alt="DWP">
         </header>
         <main class="text-center mb-5 c-blue">
             <p class="fs-35">Selamat HUT ke-67 Kalimantan Timur</p>
@@ -44,8 +45,12 @@ onMounted(async () => {
             <p class="fs-20">Dharma Wanita Persatuan DISDIKBUD Provinsi KALTIM berperan membangun KALTIM untuk nusantara,
                 melalui pembinaan keluarga dan generasi sehat berakhlak dan berbudaya.</p>
         </main>
-        <footer>
+        <footer class="d-flex justify-content-between align-items-center">
             <p class="c-yellow fw-bold">Jumlah pengunjung: {{ count }}</p>
+            <div>
+                <router-link to="form" class="c-blue text-decoration-none">Buku Tamu | </router-link>
+                <router-link to="attendances" class="c-blue text-decoration-none">Daftar Pengunjung</router-link>
+            </div>
         </footer>
     </div>
 </template>
